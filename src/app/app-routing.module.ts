@@ -1,7 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { Page404Component } from './Page/page404/page404.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule)
+  },
+  {
+    path: 'b', loadChildren: () => import('./b/b.module').then(m => m.BModule)
+  },
+  {
+    path: '', loadChildren: () => import('./b/b.module').then(m => m.BModule)
+  },
+  // {path: '404', component: Page404Component},
+  // {path: '**', redirectTo: '/404'}
+ // { path: '', redirectTo: 'b/home', pathMatch: 'full' },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

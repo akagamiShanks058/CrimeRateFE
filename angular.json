@@ -29,9 +29,39 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.css"
+              "src/styles.css",
+              {
+                "input": "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+              },
+              {
+                "input": "./node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css"
+              },
+              {
+                "input": "./node_modules/admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css"
+              },
+              {
+                "input": "./node_modules/ngx-toastr/toastr.css"
+              },
+              {
+                "input": "./node_modules/admin-lte/dist/css/adminlte.min.css"
+              },
+              {
+                "input": "./node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css"
+              },
+              {
+                "input": "./node_modules/sweetalert2/src/sweetalert2.scss"
+              }
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/admin-lte/plugins/jquery/jquery.min.js",
+              "node_modules/admin-lte/plugins/jquery-ui/jquery-ui.min.js",
+              "node_modules/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js",
+              "node_modules/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js",
+              "node_modules/admin-lte/plugins/bootstrap-switch/js/bootstrap-switch.min.js",
+              "node_modules/admin-lte/dist/js/adminlte.js",
+              "node_modules/sweetalert2/dist/sweetalert2.js",
+              "node_modules/admin-lte/plugins/chart.js/Chart.min.js"
+            ]
           },
           "configurations": {
             "production": {
