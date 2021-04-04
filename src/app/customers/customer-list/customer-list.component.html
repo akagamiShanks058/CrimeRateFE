@@ -1,0 +1,15 @@
+<table class="table table-sm table-hover">
+    <tr *ngFor="let customer of custservice.CustomerList | async">
+      <td>{{customer.Name}}</td>
+      <td>{{customer.CustId}}</td>
+      <td>
+        <a class="btn" (click)="showForEdit(customer)">
+          <i class="fa fa-pencil-square-o"></i>
+        </a>
+        <a class="btn text-danger" (click)="onDelete(customer.CustId)">
+          <i class="fa fa-trash-o"></i>
+        </a>
+      </td>
+    </tr>
+    <tr>No Data Found...</tr>
+  </table>

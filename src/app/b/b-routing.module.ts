@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { BComponent } from './b.component';
 import { Error404Component } from './error404/error404.component';
 import { HomeComponent } from './home/home.component';
-import { PageComponent } from './page/page.component';
 
 const routes: Routes = [
   {
@@ -11,7 +10,6 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'home', component: HomeComponent },
-      { path: 'page', component: PageComponent },
       // { path: 'verify-email', component: VerifyEmailComponent },
       // { path: 'forgot-password', component: ForgotPasswordComponent },
       // { path: 'reset-password', component: ResetPasswordComponent }

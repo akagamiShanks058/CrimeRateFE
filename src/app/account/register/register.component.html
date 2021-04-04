@@ -7,16 +7,48 @@
         <div class="card-body register-card-body">
             <p class="login-box-msg">Register a new membership</p>
 
-            <form action="../../index.html" method="post">
+            <form #RegisterForm="ngForm" (ngSubmit)="onSubmit(RegisterForm)">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Full name">
+                    <input type="text" class="form-control" name="FirstName" #FirstName="ngModel" [(ngModel)]="registerservice.selectedRegister.FirstName"
+                     placeholder="FirstName" required>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-user"></span>
                         </div>
                     </div>
+                    <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched" style="color: red;">*</div>
                 </div>
                 <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="LastName" #LastName="ngModel" [(ngModel)]="registerservice.selectedRegister.LastName"
+                     placeholder="LastName" required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                    <div class="validation-error" *ngIf="LastName.invalid && LastName.touched" style="color: red;">*</div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="Username" #Username="ngModel" [(ngModel)]="registerservice.selectedRegister.Username"
+                     placeholder="Username" required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                    <div class="validation-error" *ngIf="Username.invalid && Username.touched" style="color: red;">*</div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" name="Password" #Password="ngModel" [(ngModel)]="registerservice.selectedRegister.Password"
+                     placeholder="Password" required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                    <div class="validation-error" *ngIf="Password.invalid && Password.touched" style="color: red;">*</div>
+                </div>
+                <!-- <div class="input-group mb-3">
                     <input type="email" class="form-control" placeholder="Email">
                     <div class="input-group-append">
                         <div class="input-group-text">
@@ -39,7 +71,7 @@
                             <span class="fas fa-lock"></span>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="row">
                     <div class="col-8">
                         <div class="icheck-primary">
@@ -51,7 +83,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        <button [disabled]="!RegisterForm.valid" type="submit" class="btn btn-primary btn-block"><i class="pull-left fa fa-spinner fa-spin" *ngIf="loading"></i>Register</button>
                     </div>
                     <!-- /.col -->
                 </div>
