@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
+import { error } from 'selenium-webdriver';
 import { Customer } from './customer.model';
 const baseURL = 'https://localhost:44353/api/Customers';
 @Injectable({
@@ -12,11 +14,35 @@ export class CustomerService {
   CustomerList!: Observable<Customer[]>;
   constructor(private httpClient: HttpClient) {
   }
-  getCustomerList(): Observable<Customer[]> {
-    this.CustomerList = this.httpClient.get<Customer[]>(baseURL);
-    console.log(this.CustomerList);
-    return this.CustomerList;
+  httpHeader = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }  
+  
+  getCustomerList(): Observable<Customer> {
+    return this.httpClient.get<Customer>(baseURL + '/users')
+    .pipe(
+      retry(1),
+      catchError(this.processError)
+    )
   }
+
+  processError(err: { error: { message: string; }; status: any; message: any; }) {
+    let message = '';
+    if(err.error instanceof ErrorEvent) {
+     message = err.error.message;
+    } else {
+     message = `Error Code: ${err.status}\nMessage: ${err.message}`;
+    }
+    console.log(message);
+    return throwError(message);
+ }
+  // getCustomerList(): Observable<Customer[]> {
+  //   this.CustomerList = this.httpClient.get<Customer[]>(baseURL);
+  //   console.log(this.CustomerList);
+  //   return this.CustomerList;
+  // }
   getCustomerById(id: any): Observable<any> {
     return this.httpClient.get(`${baseURL}/${id}`);
   }

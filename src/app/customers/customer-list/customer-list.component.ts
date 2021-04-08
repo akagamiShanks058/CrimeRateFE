@@ -11,6 +11,8 @@ import { CustomerService } from '../shared/customer.service';
 })
 export class CustomerListComponent implements OnInit {
 
+  Customers: any = [];
+
   allCustomers!: Observable<Customer[]>;
   constructor(public custservice: CustomerService,
     private toastr: ToastrService) { }
@@ -18,10 +20,13 @@ export class CustomerListComponent implements OnInit {
     this.loadAllCustomers();
   }
   loadAllCustomers() {
-    this.allCustomers = this.custservice.getCustomerList();
+     this.custservice.getCustomerList().subscribe((res: {}) => {
+      this.Customers = res;
+    })
   }
   getCustomerList() {
-    this.custservice.getCustomerList();
+    //this.custservice.getCustomerList();
+    this.loadAllCustomers();
   }
   showForEdit(cust: Customer) {
     this.custservice.selectedCustomer = Object.assign({}, cust);;
@@ -30,7 +35,7 @@ export class CustomerListComponent implements OnInit {
     if (confirm('Are you sure to delete this record ?') == true) {
       this.custservice.deleteCustomer(id)
         .subscribe(x => {
-          this.custservice.getCustomerList();
+          this.loadAllCustomers();
           this.toastr.warning("Deleted Successfully", "Employee Register");
         })
     }

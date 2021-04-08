@@ -1,54 +1,54 @@
 <div class="register-box">
-    <div class="register-logo">
-        <a href="../../index2.html"><b>Admin</b>LTE</a>
-    </div>
+  <div class="register-logo">
+    <a href="../../index2.html"><b>Admin</b>LTE</a>
+  </div>
 
-    <div class="card">
-        <div class="card-body register-card-body">
-            <p class="login-box-msg">Register a new membership</p>
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg">Register a new membership</p>
 
-            <form #RegisterForm="ngForm" (ngSubmit)="onSubmit(RegisterForm)">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="FirstName" #FirstName="ngModel" [(ngModel)]="registerservice.selectedRegister.FirstName"
-                     placeholder="FirstName" required>
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-user"></span>
-                        </div>
-                    </div>
-                    <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched" style="color: red;">*</div>
-                </div>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="LastName" #LastName="ngModel" [(ngModel)]="registerservice.selectedRegister.LastName"
-                     placeholder="LastName" required>
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-user"></span>
-                        </div>
-                    </div>
-                    <div class="validation-error" *ngIf="LastName.invalid && LastName.touched" style="color: red;">*</div>
-                </div>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="Username" #Username="ngModel" [(ngModel)]="registerservice.selectedRegister.Username"
-                     placeholder="Username" required>
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-user"></span>
-                        </div>
-                    </div>
-                    <div class="validation-error" *ngIf="Username.invalid && Username.touched" style="color: red;">*</div>
-                </div>
-                <div class="input-group mb-3">
-                    <input type="password" class="form-control" name="Password" #Password="ngModel" [(ngModel)]="registerservice.selectedRegister.Password"
-                     placeholder="Password" required>
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-user"></span>
-                        </div>
-                    </div>
-                    <div class="validation-error" *ngIf="Password.invalid && Password.touched" style="color: red;">*</div>
-                </div>
-                <!-- <div class="input-group mb-3">
+      <form #RegisterForm="ngForm" (ngSubmit)="onSubmitold(RegisterForm)">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="FirstName" #FirstName="ngModel"
+            [(ngModel)]="registerservice.selectedRegister.FirstName" placeholder="FirstName" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+          <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched" style="color: red;">*</div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="LastName" #LastName="ngModel"
+            [(ngModel)]="registerservice.selectedRegister.LastName" placeholder="LastName" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+          <div class="validation-error" *ngIf="LastName.invalid && LastName.touched" style="color: red;">*</div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="Username" #Username="ngModel"
+            [(ngModel)]="registerservice.selectedRegister.Username" placeholder="Username" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+          <div class="validation-error" *ngIf="Username.invalid && Username.touched" style="color: red;">*</div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" name="Password" #Password="ngModel"
+            [(ngModel)]="registerservice.selectedRegister.Password" placeholder="Password" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+          <div class="validation-error" *ngIf="Password.invalid && Password.touched" style="color: red;">*</div>
+        </div>
+        <!-- <div class="input-group mb-3">
                     <input type="email" class="form-control" placeholder="Email">
                     <div class="input-group-append">
                         <div class="input-group-text">
@@ -72,38 +72,88 @@
                         </div>
                     </div>
                 </div> -->
-                <div class="row">
-                    <div class="col-8">
-                        <div class="icheck-primary">
-                            <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-                            <label for="agreeTerms">
-                                I agree to the <a href="#">terms</a>
-                            </label>
-                        </div>
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-4">
-                        <button [disabled]="!RegisterForm.valid" type="submit" class="btn btn-primary btn-block"><i class="pull-left fa fa-spinner fa-spin" *ngIf="loading"></i>Register</button>
-                    </div>
-                    <!-- /.col -->
-                </div>
-            </form>
-
-            <div class="social-auth-links text-center">
-                <p>- OR -</p>
-                <a href="#" class="btn btn-block btn-primary">
-                    <i class="fab fa-facebook mr-2"></i>
-                    Sign up using Facebook
-                </a>
-                <a href="#" class="btn btn-block btn-danger">
-                    <i class="fab fa-google-plus mr-2"></i>
-                    Sign up using Google+
-                </a>
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+              <label for="agreeTerms">
+                I agree to the <a href="#">terms</a>
+              </label>
             </div>
-
-            <a href="login.html" class="text-center">I already have a membership</a>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button [disabled]="!RegisterForm.valid" type="submit" class="btn btn-primary btn-block"><i
+                class="pull-left fa fa-spinner fa-spin" *ngIf="loading"></i>Register</button>
+          </div>
+          <!-- /.col -->
         </div>
-        <!-- /.form-box -->
-    </div><!-- /.card -->
+      </form>
+
+      <!-- <div class="social-auth-links text-center">
+        <p>- OR -</p>
+        <a href="#" class="btn btn-block btn-primary">
+          <i class="fab fa-facebook mr-2"></i>
+          Sign up using Facebook
+        </a>
+        <a href="#" class="btn btn-block btn-danger">
+          <i class="fab fa-google-plus mr-2"></i>
+          Sign up using Google+
+        </a>
+      </div> -->
+
+      <a [routerLink]="['/account/login']" class="text-center">I already have a membership</a>
+      <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required minlength="3"
+            maxlength="20" #username="ngModel" />
+          <div class="alert-danger" *ngIf="username.errors && f.submitted">
+            <div *ngIf="username.errors.required">Username is required</div>
+            <div *ngIf="username.errors.minlength">
+              Username must be at least 3 characters
+            </div>
+            <div *ngIf="username.errors.maxlength">
+              Username must be at most 20 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email
+            #email="ngModel" />
+          <div class="alert-danger" *ngIf="email.errors && f.submitted">
+            <div *ngIf="email.errors.required">Email is required</div>
+            <div *ngIf="email.errors.email">
+              Email must be a valid email address
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
+            #password="ngModel" />
+          <div class="alert-danger" *ngIf="password.errors && f.submitted">
+            <div *ngIf="password.errors.required">Password is required</div>
+            <div *ngIf="password.errors.minlength">
+              Password must be at least 6 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary btn-block">Sign Up</button>
+        </div>
+  
+        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+          Signup failed!<br />{{ errorMessage }}
+        </div>
+      </form>
+  
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        Your registration is successful!
+      </div>
+    </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
 </div>
 <!-- /.register-box -->

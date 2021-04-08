@@ -10,6 +10,9 @@ const routes: Routes = [
   {
     path: 'b', loadChildren: () => import('./b/b.module').then(m => m.BModule)
   },
+  {
+    path: 'crime', loadChildren: () => import('./crime/crime.module').then(m => m.CrimeModule)
+  },
   // {
   //   path: '', loadChildren: () => import('./b/b.module').then(m => m.BModule)
   // },

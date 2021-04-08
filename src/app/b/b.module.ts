@@ -4,10 +4,11 @@ import { BRoutingModule } from './b-routing.module';
 import { HomeComponent } from './home/home.component';
 import { BComponent } from './b.component';
 import { Error404Component } from './error404/error404.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, BComponent, Error404Component],
+  declarations: [HomeComponent, BComponent, Error404Component, DashboardComponent],
   imports: [
     CommonModule,
     BRoutingModule

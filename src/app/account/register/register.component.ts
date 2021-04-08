@@ -2,6 +2,7 @@ import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/_services/auth.service';
 import { RegisterService } from '../shared/register.service';
 
 @Component({
@@ -10,9 +11,17 @@ import { RegisterService } from '../shared/register.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  form: any = {
+    username: null,
+    email: null,
+    password: null
+  };
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
 
   loading: boolean = false;
-  constructor(public registerservice: RegisterService, private toastr: ToastrService) { }
+  constructor(public registerservice: RegisterService, private toastr: ToastrService,private authService: AuthService) { }
 
   ngOnInit(): void {
     this.resetForm();
@@ -27,7 +36,7 @@ export class RegisterComponent implements OnInit {
       Password: ''
     }
   }
-  onSubmit(form: NgForm) {
+  onSubmitold(form: NgForm) {
     console.log(form.value.CustId);
     this.loading=true;
     this.registerservice.register(form.value)
@@ -38,7 +47,24 @@ export class RegisterComponent implements OnInit {
       },
       error =>{
         this.loading=false;
-        this.toastr.error('Somthing want Wrong try again');
+        this.toastr.error(error);
       })
+  }
+
+
+  onSubmit(): void {
+    const { username, email, password } = this.form;
+
+    this.authService.register(username, email, password).subscribe(
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
+    );
   }
 }
