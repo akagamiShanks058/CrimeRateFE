@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CustomersComponent } from './customers/customers.component';
-import { Page404Component } from './Page/page404/page404.component';
 
 const routes: Routes = [
   {
@@ -16,7 +14,6 @@ const routes: Routes = [
   // {
   //   path: '', loadChildren: () => import('./b/b.module').then(m => m.BModule)
   // },
-  {path: 'customers', component: CustomersComponent},
   // {path: '404', component: Page404Component},
   // {path: '**', redirectTo: '/404'}
  // { path: '', redirectTo: 'b/home', pathMatch: 'full' },

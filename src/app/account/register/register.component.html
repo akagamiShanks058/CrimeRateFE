@@ -1,29 +1,28 @@
 <div class="register-box">
-  <div class="register-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
-  </div>
-
-  <div class="card">
+  <div class="card card-primary card-outline">
+     <div class="card-header text-center">
+      <img src="./assets/crime/Logo.png" width="200" height="50" class="d-inline-block align-top" alt="">
+    </div>
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Register a new membership</p>
+      <p class="login-box-msg">Create a New Account</p>
 
       <form #RegisterForm="ngForm" (ngSubmit)="onSubmitold(RegisterForm)">
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="FirstName" #FirstName="ngModel"
-            [(ngModel)]="registerservice.selectedRegister.FirstName" placeholder="FirstName" required>
+            [(ngModel)]="registerservice.selectedRegister.FirstName" placeholder="Email ID" required>
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-user"></span>
+              <span class="fas fa-envelope"></span>
             </div>
           </div>
           <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched" style="color: red;">*</div>
         </div>
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="LastName" #LastName="ngModel"
-            [(ngModel)]="registerservice.selectedRegister.LastName" placeholder="LastName" required>
+            [(ngModel)]="registerservice.selectedRegister.LastName" placeholder="Mobile Number" required>
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-user"></span>
+              <span class="fas fa-phone"></span>
             </div>
           </div>
           <div class="validation-error" *ngIf="LastName.invalid && LastName.touched" style="color: red;">*</div>
@@ -41,6 +40,16 @@
         <div class="input-group mb-3">
           <input type="password" class="form-control" name="Password" #Password="ngModel"
             [(ngModel)]="registerservice.selectedRegister.Password" placeholder="Password" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+          <div class="validation-error" *ngIf="Password.invalid && Password.touched" style="color: red;">*</div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" name="Password" #Password="ngModel"
+            [(ngModel)]="registerservice.selectedRegister.Password" placeholder="Confirm Password" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -102,35 +111,45 @@
         </a>
       </div> -->
 
-      <a [routerLink]="['/account/login']" class="text-center">I already have a membership</a>
-      <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <a [routerLink]="['/account/login']" class="text-center">I already have a login</a>
+      <!-- <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <div class="form-group">
-          <!-- <label for="username">Username</label> -->
-          <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required minlength="3"
-            maxlength="20" #username="ngModel" />
-          <div class="alert-danger" *ngIf="username.errors && f.submitted">
-            <div *ngIf="username.errors.required">Username is required</div>
-            <div *ngIf="username.errors.minlength">
-              Username must be at least 3 characters
+          <input type="text" class="form-control" name="FirstName" [(ngModel)]="form.FirstName" required minlength="3"
+            maxlength="20" #FirstName="ngModel" />
+          <div class="alert-danger" *ngIf="FirstName.errors && f.submitted">
+            <div *ngIf="FirstName.errors.required">FirstName is required</div>
+            <div *ngIf="FirstName.errors.minlength">
+              FirstName must be at least 3 characters
             </div>
-            <div *ngIf="username.errors.maxlength">
-              Username must be at most 20 characters
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <!-- <label for="email">Email</label> -->
-          <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email
-            #email="ngModel" />
-          <div class="alert-danger" *ngIf="email.errors && f.submitted">
-            <div *ngIf="email.errors.required">Email is required</div>
-            <div *ngIf="email.errors.email">
-              Email must be a valid email address
+            <div *ngIf="FirstName.errors.maxlength">
+              FirstName must be at most 20 characters
             </div>
           </div>
         </div>
         <div class="form-group">
-          <!-- <label for="password">Password</label> -->
+          <input type="text" class="form-control" name="LastName" [(ngModel)]="form.LastName" required minlength="3"
+            maxlength="20" #LastName="ngModel" />
+          <div class="alert-danger" *ngIf="LastName.errors && f.submitted">
+            <div *ngIf="LastName.errors.required">LastName is required</div>
+            <div *ngIf="LastName.errors.minlength">
+              LastName must be at least 3 characters
+            </div>
+            <div *ngIf="LastName.errors.maxlength">
+              LastName must be at most 20 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control" name="Username" [(ngModel)]="form.Username" required email
+            #Username="ngModel" />
+          <div class="alert-danger" *ngIf="Username.errors && f.submitted">
+            <div *ngIf="Username.errors.required">Username is required</div>
+            <div *ngIf="Username.errors.email">
+              Username must be a valid email address
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
           <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
             #password="ngModel" />
           <div class="alert-danger" *ngIf="password.errors && f.submitted">
@@ -151,9 +170,7 @@
   
       <div class="alert alert-success" *ngIf="isSuccessful">
         Your registration is successful!
-      </div>
+      </div> -->
     </div>
-    <!-- /.form-box -->
-  </div><!-- /.card -->
+  </div>
 </div>
-<!-- /.register-box -->

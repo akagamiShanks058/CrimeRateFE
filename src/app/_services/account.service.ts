@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Login, User } from '../account/shared/register.model';
+import { Login, User } from '../_shared/interface';
 
 @Injectable({
   providedIn: 'root'

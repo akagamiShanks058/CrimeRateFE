@@ -19,9 +19,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { Page404Component } from './Page/page404/page404.component';
 import { Page500Component } from './Page/page500/page500.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { CustomersComponent } from './customers/customers.component';
-import { CustomerComponent } from './customers/customer/customer.component';
-import { CustomerListComponent } from './customers/customer-list/customer-list.component';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
@@ -32,9 +29,6 @@ import { CrimeModule } from './crime/crime.module';
     AppComponent,
     Page404Component,
     Page500Component,
-    CustomersComponent,
-    CustomerComponent,
-    CustomerListComponent,
   ],
   imports: [
     BrowserModule,

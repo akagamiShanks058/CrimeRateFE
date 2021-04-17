@@ -1,24 +1,23 @@
-<!-- <div class="login-box">
-  <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
-  </div>
-  <div class="card">
+<div class="login-box">
+  <div class="card card-primary card-outline">
+    <div class="card-header text-center">
+      <img src="./assets/crime/Logo.png" width="200" height="50" class="d-inline-block align-top" alt="">
+    </div>
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
-
+      <p class="login-box-msg">Login in to start your session</p>
       <form #LoginForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="Username" #Username="ngModel" [(ngModel)]="Login.Username"
+          <input type="text" class="form-control" name="Username" #Username="ngModel" [(ngModel)]="form.Username"
             placeholder="Username" required>
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-user"></span>
             </div>
           </div>
           <div class="validation-error" *ngIf="Username.invalid && Username.touched" style="color: red;">*</div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="Password" #Password="ngModel" [(ngModel)]="Login.Password"
+          <input type="password" class="form-control" name="Password" #Password="ngModel" [(ngModel)]="form.Password"
             placeholder="Password" required>
           <div class="input-group-append">
             <div class="input-group-text">
@@ -42,37 +41,7 @@
           </div>
         </div>
       </form>
-
-      <div class="social-auth-links text-center mb-3">
-        <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-        </a>
-      </div>
-
-      <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p>
-      <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
-      </p>
-    </div>
-  </div>
-</div> -->
-
-
-<div class="login-box">
-  <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
-  </div>
-  <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
-
-      <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <!-- <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <div class="form-group">
           <label for="username">Username</label>
           <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required
@@ -102,12 +71,12 @@
             Login failed: {{ errorMessage }}
           </div>
         </div>
-      </form>
+      </form> -->
 
-      <div class="alert alert-success" *ngIf="isLoggedIn">
+      <!-- <div class="alert alert-success" *ngIf="isLoggedIn">
         Logged in as {{ roles }}.
-      </div>
-      <div class="social-auth-links text-center mb-3">
+      </div> -->
+      <!-- <div class="social-auth-links text-center mb-3">
         <p>- OR -</p>
         <a href="#" class="btn btn-block btn-primary">
           <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
@@ -115,13 +84,13 @@
         <a href="#" class="btn btn-block btn-danger">
           <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
         </a>
-      </div>
+      </div> -->
 
       <p class="mb-1">
         <a href="forgot-password.html">I forgot my password</a>
       </p>
       <p class="mb-0">
-        <a [routerLink]="['/account/register']" class="text-center">Register a new membership</a>
+        <a [routerLink]="['/account/register']" class="text-center">Register a new account</a>
       </p>
     </div>
   </div>

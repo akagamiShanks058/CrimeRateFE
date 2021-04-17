@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Register } from './register.model';
+import { Register } from 'src/app/_shared/interface';
 const baseURL = 'https://localhost:44353/users/register';
 @Injectable({
   providedIn: 'root'
