@@ -29,43 +29,57 @@
                 </div>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="form-group col-4">
-                        <label for="inputName">Full Name</label><span class="text-danger">*</span>
-                        <input type="text" id="inputName" class="form-control" placeholder="Full Name" />
+                <form #form="ngForm" (submit)="onSubmit(form)">
+                    <!-- <input type="hidden" name="ContactId" #ContactId="ngModel" [value]="service.formData.ContactId"> -->
+                    <div class="row">
+                        <div class="form-group col-4">
+                            <label for="inputName">Full Name</label><span class="text-danger">*</span>
+                            <input type="text" id="inputName" class="form-control" placeholder="Full Name"
+                                name="FullName" #FullName="ngModel" [(ngModel)]="service.formData.FullName" required />
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="inputEmail">E-Mail</label><span class="text-danger">*</span>
+                            <input type="email" id="inputEmail" class="form-control" placeholder="E-mail" name="Email"
+                                #Email="ngModel" [(ngModel)]="service.formData.Email" required />
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="inputMobile">Mobile No</label><span class="text-danger">*</span>
+                            <input type="text" id="inputMobile" class="form-control" placeholder="Mobile No"
+                                name="Mobile" #Mobile="ngModel" [(ngModel)]="service.formData.Mobile" required />
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="inputSubject">Aadharcard No</label><span class="text-danger">*</span>
+                            <input type="text" id="inputSubject" class="form-control" placeholder="Aadharcard no"
+                                name="Aadharcard" #Aadharcard="ngModel" [(ngModel)]="service.formData.Aadharcard"
+                                required />
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="inputSubject">Complaint Type</label><span class="text-danger">*</span>
+                            <!-- <select name="proffesion" [(ngModel)]="person.proffesion" #proffesion="ngModel"> -->
+                            <select class="form-control" id="ComplaintType" name="ComplaintType" [(ngModel)]="service.formData.ComplaintType">
+                                <option [ngValue]="null" selected>-- select complaint type --</option>
+                                <option *ngFor="let ComplaintType of CrimeTypes" [ngValue]="ComplaintType.title">{{ComplaintType.title}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="inputSubject">Date</label><span class="text-danger">*</span>
+                            <input type="date" id="inputSubject" class="form-control" placeholder="Date"
+                                name="ComplaintDate" #ComplaintDate="ngModel"
+                                [(ngModel)]="service.formData.ComplaintDate" />
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="inputMessage">Complaint Details</label><span class="text-danger">*</span>
+                            <textarea id="inputMessage" class="form-control" rows="2"
+                                placeholder="Enter Your Complaint Details" name="ComplaintDetails"
+                                #ComplaintDetails="ngModel" [(ngModel)]="service.formData.ComplaintDetails"
+                                required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-info" value="Register Complaint"
+                                [disabled]="form.invalid">Register Complaint</button>
+                        </div>
                     </div>
-                    <div class="form-group col-4">
-                        <label for="inputEmail">E-Mail</label><span class="text-danger">*</span>
-                        <input type="email" id="inputEmail" class="form-control" placeholder="E-mail" />
-                    </div>
-                    <div class="form-group col-4">
-                        <label for="inputEmail">Mobile No</label><span class="text-danger">*</span>
-                        <input type="email" id="inputEmail" class="form-control" placeholder="Mobile No" />
-                    </div>
-                    <div class="form-group col-4">
-                        <label for="inputSubject">Aadharcard No</label><span class="text-danger">*</span>
-                        <input type="text" id="inputSubject" class="form-control" placeholder="Aadharcard no" />
-                    </div>
-                    <div class="form-group col-4">
-                        <label for="inputSubject">Complaint Type</label><span class="text-danger">*</span>
-                        <!-- <select name="proffesion" [(ngModel)]="person.proffesion" #proffesion="ngModel"> -->
-                        <select class="form-control">
-                            <option *ngFor="let p of CrimeTypes" [value]="p.id">{{p.title}}</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-4">
-                        <label for="inputSubject">Date</label><span class="text-danger">*</span>
-                        <input type="datetime" id="inputSubject" class="form-control" placeholder="Date" />
-                    </div>
-                    <div class="form-group col-12">
-                        <label for="inputMessage">Complaint Details</label><span class="text-danger">*</span>
-                        <textarea id="inputMessage" class="form-control" rows="2"
-                            placeholder="Enter Your Complaint Details"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-info" value="Register Complaint">
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
         <div class="card card-outline card-primary">

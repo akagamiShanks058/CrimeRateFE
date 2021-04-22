@@ -5,6 +5,7 @@ import { ComplaintAddComponent } from './complaint-add/complaint-add.component';
 import { ComplaintDetailsComponent } from './complaint-details/complaint-details.component';
 import { ComplaintEditComponent } from './complaint-edit/complaint-edit.component';
 import { ComplaintmanageComponent } from './complaintmanage/complaintmanage.component';
+import { ContactDetailsComponent } from './contact-details/contact-details.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Error404Component } from './error404/error404.component';
 import { HomeComponent } from './home/home.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'complaint-add', component: ComplaintAddComponent },
       { path: 'complaint-edit', component: ComplaintEditComponent },
       { path: 'complaint-details', component: ComplaintDetailsComponent },
+      { path: 'contact-details', component: ContactDetailsComponent },
       // { path: 'verify-email', component: VerifyEmailComponent },
       // { path: 'forgot-password', component: ForgotPasswordComponent },
       // { path: 'reset-password', component: ResetPasswordComponent }

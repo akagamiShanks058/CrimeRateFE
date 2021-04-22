@@ -14,13 +14,18 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { AnalysisIndiaComponent } from './analysis-india/analysis-india.component';
 import { AnalysisGujaratComponent } from './analysis-gujarat/analysis-gujarat.component';
 import { AnalysisCyberComponent } from './analysis-cyber/analysis-cyber.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [CrimeComponent, HomeComponent, NavComponent, FooterComponent, ComplaintComponent, PredictionComponent, AnalysisComponent, FaqComponent, ContactusComponent, AnalysisIndiaComponent, AnalysisGujaratComponent, AnalysisCyberComponent],
   imports: [
     CommonModule,
-    CrimeRoutingModule
+    CrimeRoutingModule,
+    MatFormFieldModule, 
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CrimeModule { }

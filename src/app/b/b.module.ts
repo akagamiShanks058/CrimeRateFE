@@ -10,10 +10,11 @@ import { ComplaintsComponent } from './complaints/complaints.component';
 import { ComplaintAddComponent } from './complaint-add/complaint-add.component';
 import { ComplaintEditComponent } from './complaint-edit/complaint-edit.component';
 import { ComplaintDetailsComponent } from './complaint-details/complaint-details.component';
+import { ContactDetailsComponent } from './contact-details/contact-details.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, BComponent, Error404Component, DashboardComponent, ComplaintmanageComponent, ComplaintsComponent, ComplaintAddComponent, ComplaintEditComponent, ComplaintDetailsComponent],
+  declarations: [HomeComponent, BComponent, Error404Component, DashboardComponent, ComplaintmanageComponent, ComplaintsComponent, ComplaintAddComponent, ComplaintEditComponent, ComplaintDetailsComponent, ContactDetailsComponent],
   imports: [
     CommonModule,
     BRoutingModule

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComplaintService } from 'src/app/_services/complaint.service';
 
 @Component({
   selector: 'app-complaint-details',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComplaintDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service: ComplaintService) { }
 
   ngOnInit(): void {
+    this.service.getAllContact();
   }
 
 }

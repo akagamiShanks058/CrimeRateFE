@@ -30,31 +30,35 @@
               </div>
             </div>
             <div class="card-body">
-              <div class="form-group">
-                <div class="form-horizantal">
-                  <div class="col-12">
-                    <label for="inputSubject">Year</label>
-                    <select class="form-control">
-                      <option *ngFor="let p of Years" [value]="p.id">{{p.title}}</option>
-                    </select>
-                  </div>
-                  <div class="col-12">
-                    <label for="inputName">State</label>
-                    <select class="form-control">
-                      <option *ngFor="let p of States" [value]="p.id">{{p.title}}</option>
-                    </select>
-                  </div>
-                  <div class="col-12">
-                    <label for="inputEmail">Gujarat City</label>
-                    <select class="form-control">
-                      <option *ngFor="let p of City" [value]="p.id">{{p.title}}</option>
-                    </select>
+              <form #form="ngForm" (submit)="onSubmit(form)">
+                <div class="form-group">
+                  <div class="form-horizantal">
+                    <div class="col-12">
+                      <label for="inputSubject">Year</label>
+                      <select class="form-control" id="Year" name="Year" [(ngModel)]="service.formData.Year" required>
+                        <option *ngFor="let p of Years" [ngValue]="p.id">{{p.title}}</option>
+                      </select>
+                    </div>
+                    <div class="col-12">
+                      <label for="inputName">State</label>
+                      <select class="form-control" id="State" name="State" [(ngModel)]="service.formData.State"
+                        required>
+                        <option *ngFor="let p of States" [ngValue]="p.id">{{p.title}}</option>
+                      </select>
+                    </div>
+                    <div class="col-12">
+                      <label for="inputEmail">Gujarat City</label>
+                      <select class="form-control" id="City" name="City" [(ngModel)]="service.formData.City">
+                        <option *ngFor="let p of City" [ngValue]="p.id">{{p.title}}</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Predict Data">
-              </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary" value="Predict Data" [disabled]="form.invalid">Predict
+                    Data</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -77,29 +81,28 @@
           <div class="row">
             <div class="col-6 col-md-3 text-center">
               <input type="text" class="knob" value="80" data-skin="tron" data-thickness="0.2" data-width="90"
-                     data-height="90" data-fgColor="#3c8dbc" data-readonly="true">
+                data-height="90" data-fgColor="#3c8dbc" data-readonly="true">
 
               <div class="knob-label">data-width="90"</div>
             </div>
             <!-- ./col -->
             <div class="col-6 col-md-3 text-center">
               <input type="text" class="knob" value="60" data-skin="tron" data-thickness="0.2" data-width="120"
-                     data-height="120" data-fgColor="#f56954">
+                data-height="120" data-fgColor="#f56954">
 
               <div class="knob-label">data-width="120"</div>
             </div>
             <!-- ./col -->
             <div class="col-6 col-md-3 text-center">
               <input type="text" class="knob" value="10" data-skin="tron" data-thickness="0.1" data-width="90"
-                     data-height="90" data-fgColor="#00a65a">
+                data-height="90" data-fgColor="#00a65a">
 
               <div class="knob-label">data-thickness="0.1"</div>
             </div>
             <!-- ./col -->
             <div class="col-6 col-md-3 text-center">
-              <input type="text" class="knob" value="100" data-skin="tron" data-thickness="0.2"
-                     data-angleArc="250" data-angleOffset="-125" data-width="120" data-height="120"
-                     data-fgColor="#00c0ef">
+              <input type="text" class="knob" value="100" data-skin="tron" data-thickness="0.2" data-angleArc="250"
+                data-angleOffset="-125" data-width="120" data-height="120" data-fgColor="#00c0ef">
 
               <div class="knob-label">data-angleArc="250"</div>
             </div>
