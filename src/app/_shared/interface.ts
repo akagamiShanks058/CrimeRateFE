@@ -38,11 +38,30 @@ export interface Year {
 export interface State {
     id : number;
     title : string;
+    y2019:number;
+    y2020:number;
+    y2021:number;
+    y2022:number;
+    y2023:number;
+    p2020:number;
+    p2021:number;
+    p2022:number;
+    p2023:number;
+
 }
 
 export interface City {
     id : number;
     title : string;
+    y2019:number;
+    y2020:number;
+    y2021:number;
+    y2022:number;
+    y2023:number;
+    p2020:number;
+    p2021:number;
+    p2022:number;
+    p2023:number;
 }
 
 export interface CrimeType {

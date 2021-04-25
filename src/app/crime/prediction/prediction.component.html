@@ -1,116 +1,144 @@
-<div class="container">
-  <section class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h1>Prediction</h1>
-        </div>
-        <!-- <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Contact us</li>
-          </ol>
-        </div> -->
-      </div>
-    </div><!-- /.container-fluid -->
-  </section>
-
-  <section class="content">
-    <div class="card card-primary card-outlier">
-      <div class="card-body row">
-        <div class="col-4">
-          <div class="card card-outline card-primary">
-            <div class="card-header">
-              <h3 class="card-title">Predict Crime Rate </h3>
-
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                  <i class="fas fa-minus"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-body">
-              <form #form="ngForm" (submit)="onSubmit(form)">
-                <div class="form-group">
-                  <div class="form-horizantal">
-                    <div class="col-12">
-                      <label for="inputSubject">Year</label>
-                      <select class="form-control" id="Year" name="Year" [(ngModel)]="service.formData.Year" required>
-                        <option *ngFor="let p of Years" [ngValue]="p.id">{{p.title}}</option>
-                      </select>
-                    </div>
-                    <div class="col-12">
-                      <label for="inputName">State</label>
-                      <select class="form-control" id="State" name="State" [(ngModel)]="service.formData.State"
-                        required>
-                        <option *ngFor="let p of States" [ngValue]="p.id">{{p.title}}</option>
-                      </select>
-                    </div>
-                    <div class="col-12">
-                      <label for="inputEmail">Gujarat City</label>
-                      <select class="form-control" id="City" name="City" [(ngModel)]="service.formData.City">
-                        <option *ngFor="let p of City" [ngValue]="p.id">{{p.title}}</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <button type="submit" class="btn btn-primary" value="Predict Data" [disabled]="form.invalid">Predict
-                    Data</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="col-8">
-          <div class="card card-outline card-primary">
-            <div class="card-header">
-              <h3 class="card-title">Predict data </h3>
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                  <i class="fas fa-minus"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-body">
-              <img src="./assets/crime/predict.png" width=100% alt="">
-            </div>
+<div class="container-fluid">
+  <div class="row pt-3" style="text-align: center;">
+    <div class="col-md-12">
+      <h1 style="font-size: xx-large;">Prediction (2020-2023)</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card card-outline card-primary shadow-lg">
+        <div class="card-header">
+          <h2 class="card-title"><b><i class="fas fa-search fa-fw"></i> Search</b></h2>
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+              <i class="fas fa-minus"></i>
+            </button>
           </div>
         </div>
         <div class="card-body">
-          <div class="row">
-            <div class="col-6 col-md-3 text-center">
-              <input type="text" class="knob" value="80" data-skin="tron" data-thickness="0.2" data-width="90"
-                data-height="90" data-fgColor="#3c8dbc" data-readonly="true">
-
-              <div class="knob-label">data-width="90"</div>
+          <form #form="ngForm" (submit)="onSubmit(form)">
+            <div class="form-group">
+              <div class="form-horizantal">
+                <div class="col-12">
+                  <label for="inputSubject">Year</label>
+                  <select class="form-control" id="Year" name="Year" [(ngModel)]="service.formData.Year" required>
+                    <option *ngFor="let p of Years" [ngValue]="p.id">{{p.title}}</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label for="inputName">State</label>
+                  <select class="form-control" id="State" name="State" [(ngModel)]="service.formData.State" required>
+                    <option *ngFor="let p of States" [ngValue]="p.id">{{p.title}}</option>
+                  </select>
+                </div>
+                <div class="col-12" *ngIf="IsGujarat">
+                  <label for="chkGujarat">Gujarat City</label>
+                  <select class="form-control" id="City" name="City" [(ngModel)]="service.formData.City">
+                    <option *ngFor="let p of City" [ngValue]="p.id">{{p.title}}</option>
+                  </select>
+                </div>
+              </div>
             </div>
-            <!-- ./col -->
-            <div class="col-6 col-md-3 text-center">
-              <input type="text" class="knob" value="60" data-skin="tron" data-thickness="0.2" data-width="120"
-                data-height="120" data-fgColor="#f56954">
-
-              <div class="knob-label">data-width="120"</div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" value="Predict Data" [disabled]="form.invalid">Predict
+                Data</button>
             </div>
-            <!-- ./col -->
-            <div class="col-6 col-md-3 text-center">
-              <input type="text" class="knob" value="10" data-skin="tron" data-thickness="0.1" data-width="90"
-                data-height="90" data-fgColor="#00a65a">
-
-              <div class="knob-label">data-thickness="0.1"</div>
-            </div>
-            <!-- ./col -->
-            <div class="col-6 col-md-3 text-center">
-              <input type="text" class="knob" value="100" data-skin="tron" data-thickness="0.2" data-angleArc="250"
-                data-angleOffset="-125" data-width="120" data-height="120" data-fgColor="#00c0ef">
-
-              <div class="knob-label">data-angleArc="250"</div>
-            </div>
-            <!-- ./col -->
+          </form>
+        </div>
+      </div>
+     
+    </div>
+    <div class="col-md-6">
+      <div class="card card-outline card-primary shadow-lg">
+        <div class="card-header">
+          <h2 class="card-title"><b>{{StateName}} Crime Prediction Chart</b></h2>
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+              <i class="fas fa-minus"></i>
+            </button>
           </div>
-          <!-- /.row -->
+        </div>
+        <div class="card-body">
+          <iframe style="border:none;" [src]="urlSafe" width="100%" height="500"></iframe>
         </div>
       </div>
     </div>
-  </section>
+    <div class="col-md-3">
+      <div class="card card-outline card-primary shadow-lg" *ngIf="IsPredictDiv">
+        <div class="card-body" *ngIf="!IsCrimeRateUp">
+          <div class="small-box bg-success">
+            <div class="inner">
+              <p>Year : {{Year}}</p>
+              <h3>{{CrimeRate}}<sup style="font-size: 20px">%</sup></h3>
+              <p>Crime Rate</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-arrow-alt-circle-down"></i>
+            </div>
+            <a class="small-box-footer">{{StateName}} Total Crime : {{CrimeTotal}}</a>
+          </div>
+        </div>
+        <div class="card-body" *ngIf="IsCrimeRateUp">
+          <div class="small-box bg-danger">
+            <div class="inner">
+              <p>Year : {{Year}}</p>
+              <h3>+{{CrimeRate}}<sup style="font-size: 20px">%</sup></h3>
+              <p>Crime Rate</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-arrow-alt-circle-up"></i>
+            </div>
+            <a class="small-box-footer">{{StateName}} Total Crime : {{CrimeTotal}}</a>
+          </div>
+        </div>
+      </div>
+      <div class="card card-outline card-primary shadow-lg">
+        <div class="card-header">
+          <h2 class="card-title"><b>Prediction Crime Rate</b></h2>
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div *ngIf="Isp2020Up">
+            <button type="button" class="btn btn-outline-danger btn-block">2019-2020 : {{p2020}} % <i
+              class="fa fa-arrow-alt-circle-up"></i> </button>
+          </div>
+          <div *ngIf="!Isp2020Up">
+            <button type="button" class="btn btn-outline-success btn-block">2019-2020 : {{p2020}} % <i
+              class="fa fa-arrow-alt-circle-down"></i> </button>
+          </div>
+
+          <div *ngIf="Isp2021Up">
+            <button type="button" class="btn btn-outline-danger btn-block">2020-2021 : {{p2021}} % <i
+              class="fa fa-arrow-alt-circle-up"></i> </button>
+          </div>
+          <div *ngIf="!Isp2021Up">
+            <button type="button" class="btn btn-outline-success btn-block">2020-2021 : {{p2021}} % <i
+              class="fa fa-arrow-alt-circle-down"></i> </button>
+          </div>
+
+          <div *ngIf="Isp2022Up">
+            <button type="button" class="btn btn-outline-danger btn-block">2021-2022 : {{p2022}} % <i
+              class="fa fa-arrow-alt-circle-up"></i> </button>
+          </div>
+          <div *ngIf="!Isp2022Up">
+            <button type="button" class="btn btn-outline-success btn-block">2021-2022 : {{p2022}} % <i
+              class="fa fa-arrow-alt-circle-down"></i> </button>
+          </div>
+
+          <div *ngIf="Isp2023Up">
+            <button type="button" class="btn btn-outline-danger btn-block">2022-2023 : {{p2023}} % <i
+              class="fa fa-arrow-alt-circle-up"></i> </button>
+          </div>
+          <div *ngIf="!Isp2023Up">
+            <button type="button" class="btn btn-outline-success btn-block">2022-2023 : {{p2023}} % <i
+              class="fa fa-arrow-alt-circle-down"></i> </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

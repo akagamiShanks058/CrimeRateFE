@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light fixed-top">
+<nav class="navbar navbar-expand-md navbar-light fixed-top shadow">
   <a class="navbar-brand">
     <img src="./assets/crime/Logo.png" width="150" height="50" class="d-inline-block align-top" alt="">
   </a>
@@ -12,12 +12,6 @@
       <li class="nav-item ">
         <a class="nav-link" [routerLink]="['/crime/home']"><b>Home</b></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/crime/complaint']"><b>Complaint</b></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/crime/prediction']"><b>Prediction</b></a>
-      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -28,6 +22,12 @@
           <a class="dropdown-item" [routerLink]="['/crime/analysis-gujarat']">Gujarat</a>
           <a class="dropdown-item" [routerLink]="['/crime/cyber-crime']">Cyber Crime</a>
         </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/crime/prediction']"><b>Prediction</b></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/crime/complaint']"><b>Complaint</b></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['faq']"><b>F/Q</b></a>

@@ -1,4 +1,7 @@
-<router-outlet></router-outlet>
-<!-- <div class="container">
-    <app-customers></app-customers>
-  </div> -->
+<div *ngIf="noInternetConnection" style="text-align: center;">
+  <h1>THERE IS NO INTERNET CONNECTION</h1>
+  <img width="111px" src="./assets/crime/nointernet.png" alt="Wifi Connecred" />
+</div>
+<div *ngIf="!noInternetConnection">
+  <router-outlet></router-outlet>
+</div>
