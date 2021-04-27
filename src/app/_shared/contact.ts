@@ -7,16 +7,16 @@ export class Contact {
 }
 
 export class Complaint {
-    ComplaintId: number = 0;
-    FullName: string = '';
-    Email: string = '';
-    Mobile: string = '';
-    Aadharcard: string = '';
-    ComplaintType: string = '';
-    ComplaintDate!: Date;
-    ComplaintDetails: string = '';
-    InsertTime = '';
-    UpdatTime!: Date;
+    ComplaintId?: number = 0;
+    FullName?: string = '';
+    Email?: string = '';
+    Mobile?: string = '';
+    Aadharcard?: string = '';
+    ComplaintType?: string = '';
+    ComplaintDate?: any;
+    ComplaintDetails?: string = '';
+    InsertTime? = '';
+    UpdatTime?: any;
 }
 export class Prediction {
     PredictionId: number = 0;

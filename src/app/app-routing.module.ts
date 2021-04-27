@@ -11,9 +11,9 @@ const routes: Routes = [
   {
     path: 'crime', loadChildren: () => import('./crime/crime.module').then(m => m.CrimeModule)
   },
-  // {
-  //   path: '', loadChildren: () => import('./b/b.module').then(m => m.BModule)
-  // },
+  {
+    path: '', loadChildren: () => import('./crime/crime.module').then(m => m.CrimeModule)
+  },
   // {path: '404', component: Page404Component},
   // {path: '**', redirectTo: '/404'}
  // { path: '', redirectTo: 'b/home', pathMatch: 'full' },

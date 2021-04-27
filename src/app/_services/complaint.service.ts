@@ -7,7 +7,7 @@ import { Complaint } from '../_shared/contact';
   providedIn: 'root'
 })
 export class ComplaintService {
-  url = 'https://localhost:44353/api/Complaints';
+  url = 'https://localhost:44353/api/complaints';
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +17,7 @@ export class ComplaintService {
   getAllContact() {
     this.http.get<Complaint[]>(this.url)
       .toPromise().then(res => this.list = res as Complaint[]);
+      console.log(this.list);
   }
   // getAllContact(): Observable<Contact[]> {  
   //   return this.http.get<Contact[]>(this.url);  

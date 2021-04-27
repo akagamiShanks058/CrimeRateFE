@@ -12,6 +12,7 @@ export class ComplaintDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getAllContact();
+    console.log(this.service.list);
   }
 
 }
